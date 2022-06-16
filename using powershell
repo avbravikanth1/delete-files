@@ -1,0 +1,11 @@
+# using power shell delete older files and keep files with 2 days 
+
+Get-ChildItem -Path C:\Users\Administrator\Desktop\Jenkins\ -File
+$date = Get-Date
+$cutoffdate = $date.addDays(-2)
+$date
+$cutoffdate
+
+Get-ChildItem -Path C:\Users\Administrator\Desktop\Jenkins\ -File | Where-Object lastwriteTime -LT $cutoffdate
+Get-ChildItem -Path C:\Users\Administrator\Desktop\Jenkins\ -File | Where-Object lastwriteTime -LT $cutoffdate | Remove-Item  -force -Verbose
+Get-ChildItem -Path C:\Users\Administrator\Desktop\Jenkins\ -File
